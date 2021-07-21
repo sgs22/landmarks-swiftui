@@ -11,6 +11,7 @@ import Combine
 final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json") //never modify hike data after initially loading it, don’t need to mark it with the @Published attribute.
+    @Published var profile = Profile.default
     
     var features: [Landmark] {
            landmarks.filter { $0.isFeatured }
